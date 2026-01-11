@@ -1,11 +1,15 @@
 function filterArray(numbers, value) {
-    if (!Array.isArray(numbers) && numbers.length === 0 && typeof value !== 'number') {
+    if (!Array.isArray(numbers) || numbers.length === 0 || typeof value !== 'number') {
         return [];
     }else{
         const filteredNumbers = [];
         for (const number of numbers) {
-            if (number > value && typeof number === 'number') {
+            if(typeof number === 'number'){
+                if (number > value) {
                 filteredNumbers.push(number);
+            }
+            }else{
+                return [];
             }
         }
         return filteredNumbers;
